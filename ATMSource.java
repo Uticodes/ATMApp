@@ -1,28 +1,25 @@
 package ATMSource;
 import java.util.Scanner;
-
+/*
+*developed by Yublue
+*/
 
 
 public class ATMSource {
-
-    private static void transfer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     int pin;
     int withdraw;
     int deposit;
     static int transfer;
     int checkBalance;
-    String accountName;
-   static String check = "Transaction";
-   
-    
+    String accountName; 
     public int getpin(){return pin;}
     public void setpin(int pin){this.pin = pin;}
-    
 
-
-        public static void main(String[] args){
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args){
             
             int pin;
             
@@ -42,16 +39,14 @@ public class ATMSource {
                 System.exit(0);
             }
             Scanner in = new Scanner(System.in);
-            while(check == "Transaction")
+            
             {
                 
-                System.out.println("Welcome to Automated Teller Machine");
-                System.out.println("#Choose 1 for Withdraw");
-                System.out.println("#Choose 2 for Deposit");
-                System.out.println("#Choose 3 for Transfer");
-                System.out.println("#Choose 4 for Check Balance");
-                System.out.println("#Choose 5 for EXIT");
-                System.out.print("#Choose the operation you want to perform:");
+                System.out.println("Welcome to Automated Teller Machine\n");
+                System.out.println("#Choose 1 for Withdraw                                  #Choose 2 for Deposit\n");
+                System.out.println("#Choose 3 for Transfer                                  #Choose 4 for Check Balance\n");
+                System.out.println("#Choose 5 for EXIT\n");
+                System.out.print("#Choose the operation you want to perform:\n");
                 int selections = in.nextInt();
                
                 switch(selections)
@@ -74,7 +69,7 @@ public class ATMSource {
                         break;
 
                     case 2:
-                        System.out.print("Enter the amount you want to deposite:");
+                        System.out.print("Enter the amount you want to deposit:");
                         deposit = in.nextInt();
                         balance = balance + deposit;
                         System.out.println("\nYour transaction is processing\n");
@@ -87,7 +82,7 @@ public class ATMSource {
                         transfer = in.nextInt();
                         if(balance >= transfer)
                         {
-                            balance = balance - transfer;
+                            balance = transfer - balance;
                             System.out.println("\nYour request is processing\n");
                             System.out.println("Collect your cash");
                         }
@@ -100,20 +95,19 @@ public class ATMSource {
                         break;
                         
                     case 4:    
-                        System.out.println("Balance : "+balance);
+                        System.out.println("Transaction processing");
+                        System.out.println("Your Balance is : "+balance);
                         System.out.println("");
                         break;
 
-                    case 5:
+                    default:
                         System.exit(0);
                 }
             }
        
         }
+        
+    }
+    
 
    
-}
-
-
-
-
